@@ -1,0 +1,44 @@
+{
+  "name": "lognitor/lognitor",
+  "description": "Lognitor SDK for PHP — log management, error tracking, and monitoring",
+  "type": "library",
+  "license": "proprietary",
+  "require": {
+    "php": ">=8.0",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "suggest": {
+    "psr/log": "For PSR-3 LoggerInterface type-hints in your IDE (the SDK bundles its own implementation)",
+    "laravel/framework": "For Laravel integration (ServiceProvider, Middleware, Artisan command)",
+    "symfony/framework-bundle": "For Symfony integration"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lognitor\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Lognitor\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpstan/phpstan": "^1.10"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "analyse": "phpstan analyse src --level 8"
+  },
+  "keywords": ["logging", "error-tracking", "monitoring", "lognitor", "observability"],
+  "authors": [{ "name": "Lognitor Inc." }],
+  "homepage": "https://lognitor.com",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Lognitor\\Integrations\\Laravel\\LognitorServiceProvider"
+      ]
+    }
+  }
+}
