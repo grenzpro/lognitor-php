@@ -1,36 +1,6 @@
 <?php
-
-/**
- * Lognitor PHP SDK — Types
- * Copyright (c) 2026 Lognitor Inc. All rights reserved.
- */
-
 declare(strict_types=1);
-
 namespace Lognitor;
-
-final class LogLevel
-{
-    public const DEBUG = 0;
-    public const INFO = 1;
-    public const WARN = 2;
-    public const ERROR = 3;
-    public const FATAL = 4;
-
-    /** @var array<string, int> */
-    public const HIERARCHY = [
-        'debug' => self::DEBUG,
-        'info' => self::INFO,
-        'warn' => self::WARN,
-        'error' => self::ERROR,
-        'fatal' => self::FATAL,
-    ];
-
-    public static function isValid(string $level): bool
-    {
-        return isset(self::HIERARCHY[$level]);
-    }
-}
 
 final class Config
 {
@@ -52,7 +22,7 @@ final class Config
     public int $maxBreadcrumbs;
     /** @var callable|null */
     public $beforeSend;
-    /** @var list<string|string> */
+    /** @var list<string> */
     public array $redactPatterns;
     /** @var list<string> */
     public array $scrubUrlParams;
@@ -86,33 +56,4 @@ final class Config
         $this->transport = $options['transport'] ?? null;
         $this->integrations = $options['integrations'] ?? [];
     }
-}
-
-interface TransportInterface
-{
-    /** @param array<string, string> $headers */
-    public function send(string $url, mixed $payload, array $headers): TransportResponse;
-}
-
-final class TransportResponse
-{
-    public int $status;
-    /** @var array<string, string> */
-    public array $headers;
-    public mixed $body;
-
-    /** @param array<string, string> $headers */
-    public function __construct(int $status, array $headers, mixed $body = null)
-    {
-        $this->status = $status;
-        $this->headers = $headers;
-        $this->body = $body;
-    }
-}
-
-interface IntegrationInterface
-{
-    public function getName(): string;
-    public function setup(Client $client): void;
-    public function teardown(): void;
 }
