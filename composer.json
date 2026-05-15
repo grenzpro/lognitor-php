@@ -1,6 +1,6 @@
 {
   "name": "lognitor/lognitor",
-  "description": "Lognitor SDK for PHP \u2014 log management, error tracking, and monitoring",
+  "description": "Lognitor SDK for PHP — log management, error tracking, and monitoring",
   "type": "library",
   "license": "proprietary",
   "require": {
@@ -40,10 +40,10 @@
   ],
   "authors": [
     {
-      "name": "Lognitor Inc."
+      "name": "Lognitor"
     }
   ],
-  "homepage": "https://lognitor.com",
+  "homepage": "https://www.lognitor.com",
   "extra": {
     "laravel": {
       "providers": [
@@ -52,6 +52,7 @@
     }
   },
   "support": {
+    "docs": "https://docs.lognitor.com/sdk/php",
     "issues": "https://github.com/grenzpro/lognitor-php/issues",
     "source": "https://github.com/grenzpro/lognitor-php"
   }
