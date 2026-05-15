@@ -53,6 +53,7 @@
   },
   "support": {
     "docs": "https://docs.lognitor.com/sdk/php",
-    "issues": "https://docs.lognitor.com/support"
+    "issues": "https://github.com/grenzpro/lognitor-php/issues",
+    "source": "https://github.com/grenzpro/lognitor-php"
   }
 }
